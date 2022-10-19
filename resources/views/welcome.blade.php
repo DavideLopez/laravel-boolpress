@@ -12,7 +12,7 @@
         <!-- Styles -->
         <style>
             html, body {
-                background-color: #E0EEE0;
+                background-color: #FFE4C4;
                 color: #636b6f;
                 font-family: 'Nunito', sans-serif;
                 font-weight: 200;
@@ -73,7 +73,7 @@
                         <a href="{{ route('login') }}">Login</a>
 
                         @if (Route::has('register'))
-                            <a href="{{ route('register') }}">Register</a>
+                            <a href="{{ route('register') }}">Registrati</a>
                         @endif
                     @endauth
                 </div>
@@ -85,8 +85,8 @@
                 </div>
 
                 <div class="links">
-                    <a href="http://127.0.0.1:8000/admin/posts/">Posts</a>
-                    <a href="https://github.com/DavideLopez">Mio GitHub</a>
+                    <a href="http://127.0.0.1:8000/admin/posts/">Posts (clicca per vedere l'esercizio!)</a>
+                    <a href="https://github.com/DavideLopez">Mio GitHub!</a>
                 </div>
             </div>
         </div>
