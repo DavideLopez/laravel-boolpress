@@ -87,7 +87,6 @@
                 <div class="links">
                     <a href="http://127.0.0.1:8000/admin/posts/">Posts</a>
                     <a href="https://github.com/DavideLopez">Mio GitHub</a>
-                    <a href="https://getbootstrap.com/docs/5.2/getting-started/introduction/">Bootstrap</a>
                 </div>
             </div>
         </div>
