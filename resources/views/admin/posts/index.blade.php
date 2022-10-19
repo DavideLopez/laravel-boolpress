@@ -32,7 +32,7 @@
           <tr>
             <th scope="row">{{ $post->id }}</th>
             <td>{{ $post->title }}</td>
-            <td>{{ $post->slug }}</td>
+            <td>{{ $post->content }}</td>
             <td>{{ $post->created_at }}</td>
             <td>
               <a href="{{ route('admin.posts.show',$post) }}" type="button" class="btn btn-success btn-sm">SHOW</a>
