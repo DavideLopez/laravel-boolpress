@@ -5,10 +5,10 @@
 <div class="container">
   <div class="row">
     <div class="col-8">
-      <h1>Elenco di posts:</h1>
+      <h1>I Vostri Commenti:</h1>
     </div>
     <div class="col-4 text-left d-flex justify-content-end align-items-center">
-      <a href="{{ route('admin.posts.create') }}" type="button" class="btn btn-primary btn-sm">Nuovo Post</a>
+      <a href="{{ route('admin.posts.create') }}" type="button" class="btn btn-primary btn-sm">Crea Nuovo Post</a>
     </div>
   </div>
 </div>
@@ -35,7 +35,7 @@
             <td>{{ $post->slug }}</td>
             <td>{{ $post->created_at }}</td>
             <td>
-              <a href="{{ route('admin.posts.show',$post) }}" type="button" class="btn btn-secondary btn-sm">SHOW</a>
+              <a href="{{ route('admin.posts.show',$post) }}" type="button" class="btn btn-success btn-sm">SHOW</a>
             </td>
             <td>
               <form action="{{ route('admin.posts.destroy',$post) }}" method="POST">
@@ -43,7 +43,7 @@
                 @csrf
                 @method('DELETE')
         
-                <input type="submit" value="Elimina" class="btn btn-danger btn-sm">
+                <input type="submit" value="ELIMINA" class="btn btn-danger btn-sm">
               </form>
             </td>
           </tr>
