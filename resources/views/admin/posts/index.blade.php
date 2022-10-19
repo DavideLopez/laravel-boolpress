@@ -21,9 +21,10 @@
         <thead>
           <tr>
             <th scope="col">#</th>
-            <th scope="col">Title</th>
-            <th scope="col">Slug</th>
-            <th scope="col">Created at</th>
+            <th scope="col">Titolo</th>
+            <th scope="col">Contenuto</th>
+            <th scope="col">Creato il:</th>
+            <th scope="col">Azioni:</th>
             <th colspan="2"></th>
           </tr>
         </thead>
@@ -35,13 +36,13 @@
             <td>{{ $post->content }}</td>
             <td>{{ $post->created_at }}</td>
             <td>
-              <a href="{{ route('admin.posts.show',$post) }}" type="button" class="btn btn-success btn-sm">SHOW</a>
+              <a href="{{ route('admin.posts.show',$post) }}" type="button" class="btn btn-success btn-sm">MOSTRA</a>
             </td>
 
             <td>
               <a href="{{ route('admin.posts.edit',$post) }}" type="button" class="btn btn-primary btn-sm">Modifica</a>
             </td>
-            
+
             <td>
               <form action="{{ route('admin.posts.destroy',$post) }}" method="POST">
       
