@@ -15,7 +15,7 @@ class PostController extends Controller
      */
     public function index()
     {
-        $posts = Post::limit(55)->get();
+        $posts = Post::limit(10)->get();
 
         return view('admin.posts.index', compact('posts'));
     }
