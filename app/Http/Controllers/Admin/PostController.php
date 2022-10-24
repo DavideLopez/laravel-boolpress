@@ -41,11 +41,19 @@ class PostController extends Controller
         $params = $request->validate([
             'title' => 'required|max:255|min:4',
             'content' => 'required',
+            'category_id' => 'nullable|exists:categories,id',
+            'tags' => 'exists:tags,id'
         ]);
 
         $params['slug'] = str_replace(' ', '-', $params['title']);
 
         $post = Post::create($params);
+
+        if(array_key_exist('tags', $params)) {
+            $tags = $params['tags'];
+            // dd($tags);
+            $post->tags()->sync($tags);
+        }
 
         return redirect()->route('admin.posts.show', $post);
     }
