@@ -28,7 +28,7 @@ class PostSeeder extends Seeder
             $post->save();
 
             $tagIds = $tags->shuffle()->take(3)->all();
-            $post->tag()->sync($tagIds);php artisan make:seeder UserSeeder
+            $post->tag()->sync($tagIds);
         }
     }
 }
