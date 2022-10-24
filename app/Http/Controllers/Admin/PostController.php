@@ -4,6 +4,8 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Post;
+use App\Tag;
+use App\Category;
 use Illuminate\Http\Request;
 
 class PostController extends Controller
@@ -15,7 +17,7 @@ class PostController extends Controller
      */
     public function index()
     {
-        $posts = Post::limit(10)->get();
+        $posts = Post::limit(55)->get();
 
         return view('admin.posts.index', compact('posts'));
     }
@@ -27,7 +29,9 @@ class PostController extends Controller
      */
     public function create()
     {
-        return view('admin.posts.create');
+        $categories = Category::orderBy('name', 'asc')->get();
+        $tags = Tag::orderBy('name', 'asc')->get();
+        return view('admin.posts.create', compact('categories', 'tags'));
     }
 
     /**
@@ -49,7 +53,7 @@ class PostController extends Controller
 
         $post = Post::create($params);
 
-        if(array_key_exist('tags', $params)) {
+        if(array_key_exists('tags', $params)) {
             $tags = $params['tags'];
             // dd($tags);
             $post->tags()->sync($tags);
@@ -77,7 +81,9 @@ class PostController extends Controller
      */
     public function edit(Post $post)
     {
-        return view('admin.posts.edit', compact('post'));
+        $categories = Category::orderBy('name', 'asc')->get();
+        $tags = Tag::orderBy('name', 'asc')->get();
+        return view('admin.posts.edit', compact('categories', 'post', 'tags'));
     }
 
     /**
@@ -91,14 +97,22 @@ class PostController extends Controller
     public function update(Request $request, Post $post)
     {
         $params = $request->validate([
-            'title' => 'required|max:255|min:4',
-            'content' => 'required|min:4',
+            'title' => 'required|max:255|min:3',
+            'content' => 'required',
+            'category_id' => 'nullable|exists:App\Category,id',
+            'tags.*' => 'exists:tags,id'
         ]);
-
-        $params['slug'] = str_replace(' ', '-', $params['title']);
-
+        if ($params['title'] !== $post->title) {
+            $params['slug'] = Post::getUniqueSlugFromTitle($params['title']);
+        }
+        
         $post->update($params);
-
+        if (array_key_exists('tags', $params)) {
+            $post->tags()->sync($params['tags']);
+        }else{
+            $post->tags()->sync([]); //o sync con array vuoto
+          //  $post->tags()->detach(); o detach con array vuoto
+        }
         return redirect()->route('admin.posts.show', $post);
     }
 

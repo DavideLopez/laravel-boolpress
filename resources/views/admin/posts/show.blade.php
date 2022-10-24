@@ -31,6 +31,9 @@
       <p>
         {!! $post->content !!}
       </p>
+      @if ($post->category)
+       <h3>{{ $post->category->name }}</h3>
+      @endif
     </div>
   </div>
 </div>

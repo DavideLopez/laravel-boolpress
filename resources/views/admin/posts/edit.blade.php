@@ -37,6 +37,30 @@
           <textarea class="form-control" id="content" name="content" rows="20" placeholder="Contenuto del post">{{ old('content', $post->content) }}</textarea>
         </div>
         
+        <label for="category">Categoria</label>
+                    <select name="category_id" id="" required value="">
+                        <option value=" ">--nessuna--</option>
+                      @foreach ($categories as $category)
+                      <option @if(old('category_id',$post->category_id) == $category->id) selected @endif value="{{$category->id}}">{{$category->name}}</option>
+                      @endforeach
+                    </select>
+                    <div class="form-group">
+                        <label for="tags"> Tags: </label>
+                        @foreach ($tags as $tag)
+                        <div class="form-check form-check-inline">
+                            
+                            <input class="form-check-input" name="tags[]"
+                            
+                            @if (in_Array($tag->id,old('tags',$post->tags->pluck('id')->all())))
+                                checked
+                            @endif
+                            type="checkbox" id="tag-{{$tag->id}}" value="{{$tag->id}}">
+                            <label class="form-check-label" for="tag-{{$tag->id}}">{{$tag->name}}</label>
+                        </div>
+                        @endforeach
+                    </div>
+
+
         <button type="submit" class="btn btn-primary">Submit</button>
       </form>
     </div>

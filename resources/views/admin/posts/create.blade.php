@@ -31,17 +31,29 @@
           @enderror
         </div>
 
+        <label for="category">Categoria</label>
+              <select name="category_id" id="" required>
+                   <option value=" ">--nessuna--</option>
+                   @foreach ($categories as $category)
+                    <option @if(old('category_id')==$category->id) selected @endif value="{{$category->id}}">{{$category->name}}</option>
+                 @endforeach
+               </select>
+
         <div class="form-group">
-          <label for="category">Tag</label>
+          <label for="category">Scegli un Tag:</label>
           
-          
-          @foreach($tags as $tag)
-          <div class="form-check form-check-inline">
-            <input class="form-check-input" name="tags[]" checked type="checkbox" id="{{ $tag->id }}" value="{{ $tag->id }}"> 
-            <label class="form-check-label" for="tag-{{ $tag->id }}">{{ $tag->name }}</label>
-          </div>
+           {{-- @dump($tags); --}}
+          @foreach ($tags as $tag)
+           <div class="form-check form-check-inline">
+               {{-- il name per il tag va scritto con le quadre, così lo salva come array  --}}
+               <input class="form-check-input" name="tags[]"
+               @if (in_Array($tag->id,old('tags',[])))
+                  checked
+               @endif
+               type="checkbox" id="tag-{{$tag->id}}" value="{{$tag->id}}">
+               <label class="form-check-label" for="tag-{{$tag->id}}">{{$tag->name}}</label>
+           </div>
           @endforeach
-         </div>
 
 
         <div class="form-group">

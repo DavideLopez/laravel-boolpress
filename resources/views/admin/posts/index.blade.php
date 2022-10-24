@@ -5,7 +5,7 @@
 <div class="container">
   <div class="row">
     <div class="col-8">
-      <h1>I Vostri Commenti:</h1>
+      <h1>I Vostri Post:</h1>
     </div>
     <div class="col-4 text-left d-flex justify-content-end align-items-center">
       <a href="{{ route('admin.posts.create') }}" type="button" class="btn btn-primary btn-sm">Crea Nuovo Post</a>

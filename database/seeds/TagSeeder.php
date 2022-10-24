@@ -1,7 +1,9 @@
 <?php
 
+use App\Tag; 
 use Illuminate\Database\Seeder;
-use Illuminate\Support\Tag;
+use Illuminate\Support\Str;
+
 class TagSeeder extends Seeder
 {
     /**
@@ -11,12 +13,14 @@ class TagSeeder extends Seeder
      */
     public function run()
     {
-        $tags = ['falegnameria', 'elettronica', 'idraullica', 'audio'];
+        $tags = ['falegnameria', 'elettronica', 'idraullica', 'audio', 'sport', 'cucina', 'sicurezza'];
 
-        foreach($tags as $tagname) {
+        foreach($tags as $tagName) {
             $t = new Tag();
             $t->name = $tagName;
-            $t->slug = Str::slug($tagname);
+            $t->slug = Str::slug($tagName);
+
+            $t->save();
         }
     }
 }
