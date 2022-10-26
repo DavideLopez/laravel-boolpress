@@ -140,7 +140,16 @@ class PostController extends Controller
      */
     public function destroy(Post $post)
     {
+
+        $cover = $post->cover;
+
         $post->delete();
+
+        if($cover && Storage::exists($cover)) {
+            Storage::delete($cover);
+        }
+
+    
 
         return redirect()->route('admin.posts.index');
     }
