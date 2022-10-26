@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
+use Illuminate\Support\Facades\Storage;
 use App\Http\Controllers\Controller;
 use App\Post;
 use App\Tag;
@@ -42,12 +43,22 @@ class PostController extends Controller
      */
     public function store(Request $request)
     {
+
+         //dd($request->file('image'));  //recupera il file tramite l'input con la classe uploadedFile, se è andato a buon fine
+        //  $img_path = Storage::put('uploads', $request->file()['image']);
+
+        //  dd($img_path);
+
+
         $params = $request->validate([
             'title' => 'required|max:255|min:4',
             'content' => 'required',
             'category_id' => 'nullable|exists:categories,id',
-            'tags' => 'exists:tags,id'
+            'tags' => 'exists:tags,id',
+            'image' => 'nullable|image|max:2048'  //validiamo il parametro che arriva nella request
         ]);
+        
+        
 
         $params['slug'] = str_replace(' ', '-', $params['title']);
 
