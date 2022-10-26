@@ -59,8 +59,13 @@ class PostController extends Controller
         ]);
         
         
-
+        
         $params['slug'] = str_replace(' ', '-', $params['title']);
+
+        if(array_key_exists('image', $params)) {
+            $img_path = Storage::put('uploads', $params['image']);
+            $params['cover'] = $img_path;
+        }
 
         $post = Post::create($params);
 

@@ -12,7 +12,7 @@ class CategorySeeder extends Seeder
      */
     public function run()
     {
-        $categories = ['film', 'Serie TV', 'food', 'moda', 'digitale', 'sport'];
+        $categories = ['Film', 'Serie TV', 'Food', 'Moda', 'Digitale', 'Analogico', 'Musica', 'Sport'];
 
         foreach($categories as $name) {
             $c = new Category();
