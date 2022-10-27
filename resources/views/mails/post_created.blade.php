@@ -1,12 +1,12 @@
 @component('mail::message')
 # nuovo post 
 
-congratulazioni un nuovo post è stato aggiunto al tuo blog 
+CONGRATULAZIONI!!! un nuovo post è stato aggiunto al tuo boolpress
 
 @component('mail::button', ['url' => route('admin.posts.show', $post)])
 {{ $post->title }}
 @endcomponent
 
-grazie, <br>
+Grazie, <br>
 {{ config('app.name') }}
 @endcomponent
