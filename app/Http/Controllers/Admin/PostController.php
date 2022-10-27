@@ -8,6 +8,10 @@ use App\Post;
 use App\Tag;
 use App\Category;
 use Illuminate\Http\Request;
+use App\Mail\SendPostCreatedMail;
+use Illuminate\Support\Facades\Mail;
+
+
 
 class PostController extends Controller
 {
@@ -18,7 +22,7 @@ class PostController extends Controller
      */
     public function index()
     {
-        $posts = Post::limit(55)->get();
+        $posts = Post::limit(55)->orderBy('id', 'desc')->get();
 
         return view('admin.posts.index', compact('posts'));
     }
@@ -48,8 +52,6 @@ class PostController extends Controller
         //  $img_path = Storage::put('uploads', $request->file()['image']);
 
         //  dd($img_path);
-
-
         $params = $request->validate([
             'title' => 'required|max:255|min:4',
             'content' => 'required',
@@ -74,6 +76,8 @@ class PostController extends Controller
             // dd($tags);
             $post->tags()->sync($tags);
         }
+
+        Mail::to('ciccio.pasticcio@gmail.com')->send(new SendPostCreatedMail($post));
 
         return redirect()->route('admin.posts.show', $post);
     }

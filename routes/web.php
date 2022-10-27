@@ -13,7 +13,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
+Route::get('/admin', function () {
     return view('welcome');
 });
 
@@ -29,3 +29,13 @@ Route::middleware('auth')
 
         Route::resource('posts', 'PostController');
     });
+
+// Route::get('{any?}', function(){
+//     // dd($any);
+//     return view('guest.home');
+// })->where('any','.*');
+
+
+Route::get('/', function () {
+    return view('welcome');
+});
