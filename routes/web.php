@@ -17,7 +17,7 @@ Route::get('/admin', function () {
     return view('welcome');
 });
 
-Auth::routes();
+Auth::routes();  // NON è UN ERRORE
 
 Route::middleware('auth')
     ->prefix('admin')
@@ -30,12 +30,12 @@ Route::middleware('auth')
         Route::resource('posts', 'PostController');
     });
 
-// Route::get('{any?}', function(){
-//     // dd($any);
-//     return view('guest.home');
-// })->where('any','.*');
+Route::get('{any?}', function(){
+    // dd($any);
+    return view('guest.home');
+})->where('any','.*');
 
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('welcome');
+// });
