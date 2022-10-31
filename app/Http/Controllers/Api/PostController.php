@@ -6,7 +6,6 @@ use App\Http\Controllers\Controller;
 use App\Post;
 use Illuminate\Http\Request;
 
-
 class PostController extends Controller
 {
     /**
@@ -15,12 +14,10 @@ class PostController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
-    {
-        $posts = Post::orderBy('created_at', 'desc')->with('category', 'tags')->limit(20)->get();
-
-        return response()->json([
-            'posts' => $posts
-        ]);
+    {                                                          
+       $result=Post::orderBy('created_at','desc')->with('category','tags','category.posts')->paginate(20);
+       $success=true;
+       return response()->json(compact('result','success'));
     }
 
     /**

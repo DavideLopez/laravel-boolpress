@@ -17,21 +17,21 @@ Route::get('/admin', function () {
     return view('welcome');
 });
 
-Auth::routes();  // NON è UN ERRORE
+Auth::routes();  //non è un errore
 
 Route::middleware('auth')
-    ->prefix('admin')
-    ->name('admin.')
-    ->namespace('Admin')
-    ->group(function () {
+->prefix('admin') 
+->name('admin.')   
+->namespace('Admin')
+->group(function(){
+    Route::get('/home', 'HomeController@index')->name('home');
+    Route::resource('posts','PostController');
+    Route::resource('tags','TagController')->only('show');
+});
 
-        Route::get('/home', 'HomeController@index')->name('home');
 
-        Route::resource('posts', 'PostController');
-    });
 
-Route::get('{any?}', function(){
-    // dd($any);
+Route::get('{any?}',function(){
     return view('guest.home');
 })->where('any','.*');
 
