@@ -8,12 +8,12 @@
         </div>
         <div class="container">
   
-            <!-- <div>
+            <div>
                 <router-link :to="{name: 'blog', params:{slug:'asdasdasd'}}">
                     <PostCard v-for='post in posts' :key='post.id' :post="post" />
                 </router-link>
-            </div> -->
-            <PostCard v-for='post in posts' :key='post.id' :post="post" />
+            </div>
+            
         </div>
   
         <div class="container">

@@ -12,29 +12,31 @@
  <script>
  
  
-     export default {
-         props:['slug'],
-         data(){
-             return{
-                 post: null
-             }
-         },
-         methods:{
-            //  fetchPost(){
-            //      axios.get(/api/posts/${this.slug}).then(res=>{
-            //          console.log(res.data)
-            //          console.log('OK')
-            //      }).catch(err=>{
-            //          console.log(err)
-            //          console.log('ERRORE')
-            //      })
-            //  }
-         },
-         beforeMount(){
-             // console.log(this.$router)
-            this.fetchPost()
+    export default {
+        // props: ['slug'],
+        data(){
+            return{
+                post: null
+            }
+        },
+        methods:{
+            fetchPost(){
+                console.log(this.$route.params.slug)
+                axios.get(`/api/posts/${this.$route.params.slug}`).then(res => {
+                    console.log(res)
+                    console.log('OK')
+                }).catch(err=>{
+                    console.log(err)
+                    console.log('ERRORE')
+                })
+                
+            } 
+        },
+        beforeMount(){
+            // console.log(this.$router)
+        this.fetchPost()
 
-         }
+        }
 
-     }
- </script>
+    }
+</script>

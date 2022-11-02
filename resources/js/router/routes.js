@@ -1,7 +1,7 @@
 import Home from "../pages/Home.vue";
 import ContactUs from "../pages/ContactUs.vue";
+import PostsIndex from "../pages/Posts.index.vue";
 import Blog from "../pages/Blog.vue";
-import Posts from "../pages/Posts.index.vue";
 
 
 const routes = [
@@ -16,15 +16,16 @@ const routes = [
         component: ContactUs,
     },
     {
+        path: '/post',
+        name: 'commenti',
+        component: PostsIndex,
+    },
+    {
         path: '/blog/:slug',
         name: 'blog',
         component: Blog,
-    },
-    {
-        path: '/post',
-        name: 'commenti',
-        component: Posts.index,
-    },
+    }
+    
 ];
 
 export default routes;

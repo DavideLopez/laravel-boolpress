@@ -1960,22 +1960,23 @@ __webpack_require__.r(__webpack_exports__);
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony default export */ __webpack_exports__["default"] = ({
-  props: ['slug'],
+  // props: ['slug'],
   data: function data() {
     return {
       post: null
     };
   },
   methods: {
-    //  fetchPost(){
-    //      axios.get(/api/posts/${this.slug}).then(res=>{
-    //          console.log(res.data)
-    //          console.log('OK')
-    //      }).catch(err=>{
-    //          console.log(err)
-    //          console.log('ERRORE')
-    //      })
-    //  }
+    fetchPost: function fetchPost() {
+      console.log(this.$route.params.slug);
+      axios.get("/api/posts/".concat(this.$route.params.slug)).then(function (res) {
+        console.log(res);
+        console.log('OK');
+      })["catch"](function (err) {
+        console.log(err);
+        console.log('ERRORE');
+      });
+    }
   },
   beforeMount: function beforeMount() {
     // console.log(this.$router)
@@ -2275,6 +2276,15 @@ var render = function render() {
     staticClass: "container"
   }, [_c("h1", [_vm._v("\n            " + _vm._s(_vm.title) + "\n        ")])]), _vm._v(" "), _c("div", {
     staticClass: "container"
+  }, [_c("div", [_c("router-link", {
+    attrs: {
+      to: {
+        name: "blog",
+        params: {
+          slug: "asdasdasd"
+        }
+      }
+    }
   }, _vm._l(_vm.posts, function (post) {
     return _c("PostCard", {
       key: post.id,
@@ -2282,7 +2292,7 @@ var render = function render() {
         post: post
       }
     });
-  }), 1), _vm._v(" "), _c("div", {
+  }), 1)], 1)]), _vm._v(" "), _c("div", {
     staticClass: "container"
   }, [_c("ul", _vm._l(_vm.lastPage, function (page) {
     return _c("li", {
@@ -18408,8 +18418,8 @@ var router = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _pages_Home_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../pages/Home.vue */ "./resources/js/pages/Home.vue");
 /* harmony import */ var _pages_ContactUs_vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../pages/ContactUs.vue */ "./resources/js/pages/ContactUs.vue");
-/* harmony import */ var _pages_Blog_vue__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../pages/Blog.vue */ "./resources/js/pages/Blog.vue");
-/* harmony import */ var _pages_Posts_index_vue__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../pages/Posts.index.vue */ "./resources/js/pages/Posts.index.vue");
+/* harmony import */ var _pages_Posts_index_vue__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../pages/Posts.index.vue */ "./resources/js/pages/Posts.index.vue");
+/* harmony import */ var _pages_Blog_vue__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../pages/Blog.vue */ "./resources/js/pages/Blog.vue");
 
 
 
@@ -18423,13 +18433,13 @@ var routes = [{
   name: 'contact-us',
   component: _pages_ContactUs_vue__WEBPACK_IMPORTED_MODULE_1__["default"]
 }, {
-  path: '/blog/:slug',
-  name: 'blog',
-  component: _pages_Blog_vue__WEBPACK_IMPORTED_MODULE_2__["default"]
-}, {
   path: '/post',
   name: 'commenti',
-  component: _pages_Posts_index_vue__WEBPACK_IMPORTED_MODULE_3__["default"].index
+  component: _pages_Posts_index_vue__WEBPACK_IMPORTED_MODULE_2__["default"]
+}, {
+  path: '/blog/:slug',
+  name: 'blog',
+  component: _pages_Blog_vue__WEBPACK_IMPORTED_MODULE_3__["default"]
 }];
 /* harmony default export */ __webpack_exports__["default"] = (routes);
 
