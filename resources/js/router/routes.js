@@ -24,6 +24,7 @@ const routes = [
         path: '/blog/:slug',
         name: 'blog',
         component: Blog,
+        props: true
     }
     
 ];

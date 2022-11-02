@@ -13,7 +13,7 @@
  
  
     export default {
-        // props: ['slug'],
+        props:['slug'],
         data(){
             return{
                 post: null
@@ -21,10 +21,12 @@
         },
         methods:{
             fetchPost(){
-                console.log(this.$route.params.slug)
+                // console.log(this.$route.params.slug)
+                const slug = this.$route.params.slug;
                 axios.get(`/api/posts/${this.$route.params.slug}`).then(res => {
                     console.log(res)
                     console.log('OK')
+                    console.log(this.slug)
                 }).catch(err=>{
                     console.log(err)
                     console.log('ERRORE')

@@ -39,7 +39,8 @@ class PostController extends Controller
      */
     public function show($id)
     {
-        return '123';
+        // return '123';
+        // return view('posts.show', compact('post'));
     }
 
     /**

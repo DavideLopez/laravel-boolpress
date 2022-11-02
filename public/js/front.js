@@ -1960,7 +1960,7 @@ __webpack_require__.r(__webpack_exports__);
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony default export */ __webpack_exports__["default"] = ({
-  // props: ['slug'],
+  props: ['slug'],
   data: function data() {
     return {
       post: null
@@ -1968,10 +1968,13 @@ __webpack_require__.r(__webpack_exports__);
   },
   methods: {
     fetchPost: function fetchPost() {
-      console.log(this.$route.params.slug);
+      var _this = this;
+      // console.log(this.$route.params.slug)
+      var slug = this.$route.params.slug;
       axios.get("/api/posts/".concat(this.$route.params.slug)).then(function (res) {
         console.log(res);
         console.log('OK');
+        console.log(_this.slug);
       })["catch"](function (err) {
         console.log(err);
         console.log('ERRORE');
@@ -2281,7 +2284,7 @@ var render = function render() {
       to: {
         name: "blog",
         params: {
-          slug: "asdasdasd"
+          slug: "PROVA"
         }
       }
     }
@@ -18439,7 +18442,8 @@ var routes = [{
 }, {
   path: '/blog/:slug',
   name: 'blog',
-  component: _pages_Blog_vue__WEBPACK_IMPORTED_MODULE_3__["default"]
+  component: _pages_Blog_vue__WEBPACK_IMPORTED_MODULE_3__["default"],
+  props: true
 }];
 /* harmony default export */ __webpack_exports__["default"] = (routes);
 
