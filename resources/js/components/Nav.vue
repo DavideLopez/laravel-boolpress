@@ -1,5 +1,5 @@
 <template>
-    <header class="bg-gradient-to-r from-orange-500 to-red-500 py-3 text-black-700">
+    <header class="bg-gradient-to-r from-orange-400 to-red-500 py-3 text-black-700">
       <nav class="container">
         <div class="flex justify-between items-center">
           <div>

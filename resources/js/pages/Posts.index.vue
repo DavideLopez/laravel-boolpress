@@ -18,13 +18,11 @@
         </div>
   
         <div class="container">
-            <ul>
+            
+            <ul class="page">
                 <li :class="{
-                'active': page===currentPage
-            }"
-             v-for="page in lastPage" :key="page"
-            @click="fetchPosts(page)"
-          >{{page}}</li>
+                    'active': page === currentPage
+                }" v-for="page in lastPage" :key="page" @click="fetchPosts(page)">{{ page }}</li>
             </ul>
         </div>
     </div>
