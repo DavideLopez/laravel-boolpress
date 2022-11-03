@@ -17,22 +17,12 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+
+    {{-- TAILWIND --}}
+    <script src="https://cdn.tailwindcss.com"></script>
 </head>
 
 <body>
-
-    <script>
-tailwind.config = {
-      theme: {
-        extend: {
-          container: {
-            center: true,
-          }
-        }
-      }
-    }
-
-    </script>
 
 
 <div id="app">

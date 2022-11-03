@@ -1,9 +1,8 @@
 <template >
     <div>
-        <section>
-            <div class="container">
-                <h1>HOMMME</h1>
-
+        <section class="bg-orange-200">
+            <div class="container h-14 text-center text-2xl">
+                <h1>Benvenuti nella HOMMME page</h1>
             </div>
         </section>
     </div>

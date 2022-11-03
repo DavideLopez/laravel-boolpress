@@ -1,32 +1,19 @@
 <template>
-    <header>
-        <nav class="container">
-            <div class="flex">
-                <div>Logo</div>
-                <ul class="flex">
-                    <li v-for="(link,i) in navLinks" :key="i">
-                        <router-link :to="{name: link.name}">{{link.text}}</router-link>
-                    </li>
-                </ul>
-            </div>
-        </nav>
-
-        <!-- <ul class="nav nav-tabs">
-  <li class="nav-item">
-    <a class="nav-link active" href="#">Active</a>
-  </li>
-  <li class="nav-item">
-    <a class="nav-link" href="#">Link</a>
-  </li>
-  <li class="nav-item">
-    <a class="nav-link" href="#">Link</a>
-  </li>
-  <li class="nav-item">
-    <a class="nav-link disabled" href="#">Disabled</a>
-  </li>
-</ul> -->
+    <header class="bg-gradient-to-r from-orange-500 to-red-500 py-3 text-black-700">
+      <nav class="container">
+        <div class="flex justify-between items-center">
+          <div>
+            <img  width="80px" src="https://cdn3.emoji.gg/emojis/1226_Baby_Yoda.png" alt="">
+          </div>
+          <ul class="flex items-center">
+            <li class="px-2 py-1 hover:bg-amber-200" v-for="(link,i) in navLinks" :key="i">
+              <router-link :to="{ name: link.name }">{{ link.text }}</router-link>
+            </li>
+          </ul>
+        </div>
+      </nav>
     </header>
-</template>
+  </template>
 
 <script>
     export default {

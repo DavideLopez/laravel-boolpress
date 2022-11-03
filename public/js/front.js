@@ -2161,15 +2161,18 @@ __webpack_require__.r(__webpack_exports__);
 var render = function render() {
   var _vm = this,
     _c = _vm._self._c;
-  return _c("header", [_c("nav", {
+  return _c("header", {
+    staticClass: "bg-gradient-to-r from-orange-500 to-red-500 py-3 text-black-700"
+  }, [_c("nav", {
     staticClass: "container"
   }, [_c("div", {
-    staticClass: "flex"
-  }, [_c("div", [_vm._v("Logo")]), _vm._v(" "), _c("ul", {
-    staticClass: "flex"
+    staticClass: "flex justify-between items-center"
+  }, [_vm._m(0), _vm._v(" "), _c("ul", {
+    staticClass: "flex items-center"
   }, _vm._l(_vm.navLinks, function (link, i) {
     return _c("li", {
-      key: i
+      key: i,
+      staticClass: "px-2 py-1 hover:bg-amber-200"
     }, [_c("router-link", {
       attrs: {
         to: {
@@ -2179,7 +2182,17 @@ var render = function render() {
     }, [_vm._v(_vm._s(link.text))])], 1);
   }), 0)])])]);
 };
-var staticRenderFns = [];
+var staticRenderFns = [function () {
+  var _vm = this,
+    _c = _vm._self._c;
+  return _c("div", [_c("img", {
+    attrs: {
+      width: "80px",
+      src: "https://cdn3.emoji.gg/emojis/1226_Baby_Yoda.png",
+      alt: ""
+    }
+  })]);
+}];
 render._withStripped = true;
 
 
@@ -2260,7 +2273,7 @@ var render = function render() {
   var _vm = this,
     _c = _vm._self._c;
   return _c("div", {
-    staticClass: "h-screen flex items-center bg-amber-400"
+    staticClass: "h-screen flex items-center bg-slate-300"
   }, [_c("div", {
     staticClass: "container"
   }, [_c("h1", {
@@ -2371,9 +2384,11 @@ var staticRenderFns = [function () {
   var _vm = this,
     _c = _vm._self._c,
     _setup = _vm._self._setupProxy;
-  return _c("div", [_c("section", [_c("div", {
-    staticClass: "container"
-  }, [_c("h1", [_vm._v("HOMMME")])])])]);
+  return _c("div", [_c("section", {
+    staticClass: "bg-orange-200"
+  }, [_c("div", {
+    staticClass: "container h-14 text-center text-2xl"
+  }, [_c("h1", [_vm._v("Benvenuti nella HOMMME page")])])])]);
 }];
 render._withStripped = true;
 
