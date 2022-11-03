@@ -2,6 +2,7 @@ import Home from "../pages/Home.vue";
 import ContactUs from "../pages/ContactUs.vue";
 import PostsIndex from "../pages/Posts.index.vue";
 import Blog from "../pages/Blog.vue";
+import Page404 from "../pages/404.vue";
 
 
 const routes = [
@@ -25,6 +26,11 @@ const routes = [
         name: 'blog',
         component: Blog,
         props: true
+    },
+    {
+        path: "/*",
+        name: "404",
+        component: Page404,
     }
     
 ];

@@ -21,6 +21,19 @@
 
 <body>
 
+    <script>
+tailwind.config = {
+      theme: {
+        extend: {
+          container: {
+            center: true,
+          }
+        }
+      }
+    }
+
+    </script>
+
 
 <div id="app">
 
