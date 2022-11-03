@@ -9,9 +9,9 @@
         <div class="container">
   
             <div>
-                <router-link :to="{name: 'blog', params:{slug:'PROVA'}}">
+                <router-link :to="{name: 'blog', params:{slug: post.slug}}" v-for='post in posts' :key='post.id'>
                     
-                    <PostCard v-for='post in posts' :key='post.id' :post="post" />
+                    <PostCard  :post="post" />
                 </router-link>
             </div>
             
